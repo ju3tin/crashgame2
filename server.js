@@ -91,7 +91,12 @@ async function startGame() {
         currentMultiplier = 1.0;
         totalMultiplier = generateTotalMultiplier();
         broadcast({ action: 'ROUND_PREPARING' });
-        await sleep(TIME_PER_ROUNDS * 1000);
+        
+        // Countdown before starting the round
+        for (let i = TIME_PER_ROUNDS; i > 0; i--) {
+            broadcast({ action: 'COUNTDOWN', time: i });
+            await sleep(1000); // Sleep for 1 second
+        }
 
         // Start round
         isGameRunning = true;
