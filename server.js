@@ -249,7 +249,7 @@ async function startGame() {
         // Increment multiplier
         while (currentMultiplier < totalMultiplier) {
             currentMultiplier += 0.01;
-            broadcast({ action: 'CNT_MULTIPLY', multiplier: currentMultiplier.toFixed(2) });
+            broadcast({ action: 'CNT_MULTIPLY', multiplier: currentMultiplier.toFixed(2), data: currentMultiplier.toFixed(2)});
             await sleep(DELAY_PER_DELTA_MULT * 1000);
 
             if (currentMultiplier >= totalMultiplier) {
