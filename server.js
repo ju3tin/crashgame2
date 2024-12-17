@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3004;
 const CHANCE_LESS_THAN_2 = 90;
 const MAX_INT_MULTIPLY = 100;
 const TIME_PER_ROUNDS = 10;
-const TIME_AFTER_ROUND = 2;
+const TIME_AFTER_ROUND = 10;
 const DELAY_PER_DELTA_MULT = 0.002;
 
 // Initialize Express and WebSocket server
