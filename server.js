@@ -236,6 +236,7 @@ async function startGame() {
         // Countdown before starting the round
         for (let i = TIME_PER_ROUNDS; i > 0; i--) {
             broadcast({ action: 'COUNTDOWN', time: i });
+            broadcast({ action: 'SECOND_BEFORE_START', data: i })
             await sleep(1000); // Sleep for 1 second
         }
 
