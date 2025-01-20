@@ -197,6 +197,7 @@ wss.on('connection', (ws) => {
                         playerState.cntBet = Math.min(data.bet, playerState.cntBalance);
                         playerState.isBetted = true;
                         playerState.cntBalance -= playerState.cntBet;
+                        ws.send(JSON.stringify({ action: 'BET_MADE', player: data.walletAddress}))
                         ws.send(JSON.stringify({ action: 'CNT_BALANCE', balance: playerState.cntBalance.toFixed(2) }));
                     } else if (playerState.isBetted && isGameRunning && !playerState.isTook) {
                         // Player cashes out
